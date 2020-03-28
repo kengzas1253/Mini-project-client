@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
+import Navbar from './Navbar';
 
-const Employee =()=>{
-   
+
+const Form =()=>{
     const employees = useSelector(state=> state.employee);
     const form = useSelector(state => state.form)
     const dispatch = useDispatch()
@@ -15,18 +16,15 @@ const Employee =()=>{
         console.log(result.data)
         dispatch({type:'GET_EMPLOYEES',employee: result.data})
       }
-
-      const printEmployees = ()=>{
+      const printEmployee = ()=>{
         if(employees && employees.length){
             return employees.map((employee,index)=>{
                 return(
-               <tr>
-                   <td>{employee.name}</td>
-                <td>{employee.surname}</td>
-                <td>{employee.tel}</td>
-                <td>{employee.position}</td>
-               </tr>
-                   
+                    <li key={index}>
+                            
+                            {employee.name}  {employee.surname  } : 
+                            {employee.tel}  {employee.position}
+                    </li> 
                 )
             })
         }
@@ -34,22 +32,14 @@ const Employee =()=>{
             return(<h1>No data</h1>)
         }
     }
-
   return (
     <div>
-         <table  >
-                <tr >
-                  <th>Firstname</th>
-                  <th>Lastname</th> 
-                  <th>TEL</th>
-                  <th>position</th>
-                </tr>
-                    {printEmployees()}  
-            </table>
-                
-     
+        <Navbar/>
+        <ul>
+                {printEmployee()}
+        </ul>
     </div>
   );
 }
 
-export default Employee;
+export default Form;
