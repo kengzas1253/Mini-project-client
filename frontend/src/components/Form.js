@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 import Navbar from './Navbar';
+import InputForm from './InputForm';
 
 
 const Form =()=>{
@@ -38,6 +39,7 @@ const Form =()=>{
         <ul>
                 {printEmployee()}
         </ul>
+        <InputForm/>
     </div>
   );
 }
