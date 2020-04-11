@@ -17,6 +17,12 @@ const Form =()=>{
         console.log(result.data)
         dispatch({type:'GET_EMPLOYEES',employee: result.data})
       }
+      const deleteEmployee = async (employee_id)=>{
+        await axios.delete(`https://api-booking-parttimes.herokuapp.com/api/employees/${employee_id}`)
+        dispatch({type:'DELETE_EMPLOYEE',id: employee_id })
+        getEmployees()
+          
+    }
       const printEmployee = ()=>{
         if(employees && employees.length){
             return employees.map((employee,index)=>{
@@ -25,6 +31,9 @@ const Form =()=>{
                             
                             {employee.name}  {employee.surname  } : 
                             {employee.tel}  {employee.position}
+                            <button style={{marginLeft:"6px"}}
+                            onClick={()=>deleteEmployee(employee.id)}
+                            >Delete</button>
                     </li> 
                 )
             })

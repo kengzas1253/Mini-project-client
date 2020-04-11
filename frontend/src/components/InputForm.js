@@ -7,6 +7,16 @@ function InputForm() {
     const dispatch = useDispatch();
     const form = useSelector(state => state.form)
     const employees = useSelector(state => state.employee)
+
+    const addEmployee = async () => {
+      await axios.post(`https://api-booking-parttimes.herokuapp.com/api/employees`, form)
+       dispatch({
+           type: 'ADD_EMPLOYEE', employee: {
+               id: employees.length > 0 ? employees[employees.length-1].id+1 : 0,
+               ...form
+           }
+       })
+   }
   return (
     <div>
         <p1>{form.name} {form.surname} {form.tel} {form.position}</p1>
@@ -31,7 +41,7 @@ function InputForm() {
              placeholder="Enter Position" 
              onChange={(e) => dispatch({ type: 'CHANGE_POSITION', position: e.target.value })}
             />
-            <button style={{marginLeft: "4px" }}>Add Data</button>
+            <button style={{marginLeft: "4px" }} onClick={addEmployee}>Add Data</button>
            
     </div>
   );
