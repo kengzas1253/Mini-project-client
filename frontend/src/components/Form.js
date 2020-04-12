@@ -23,6 +23,16 @@ const Form =()=>{
         getEmployees()
           
     }
+    const updateEmployee = async (employee_id) => {
+      await axios.put(`https://api-booking-parttimes.herokuapp.com/api/employees/${employee_id}`,form)
+       dispatch(
+           {type:'UPDATE_EMPLOYEE',
+          id: employee_id,
+           employee:{...form,id:  employee_id}
+       })
+       getEmployees()
+       
+     }
       const printEmployee = ()=>{
         if(employees && employees.length){
             return employees.map((employee,index)=>{
@@ -31,9 +41,13 @@ const Form =()=>{
                             
                             {employee.name}  {employee.surname  } : 
                             {employee.tel}  {employee.position}
-                            <button style={{marginLeft:"6px"}}
+                            <br/>
+                            <button style={{marginLeft:"6px"}} className="btn btn-danger btn-sm"
                             onClick={()=>deleteEmployee(employee.id)}
                             >Delete</button>
+                            <button style={{marginLeft:"6px" }} className="btn btn-info btn-sm"
+                            onClick={()=>updateEmployee(employee.id)}
+                            >Update</button>
                     </li> 
                 )
             })
@@ -45,9 +59,14 @@ const Form =()=>{
   return (
     <div>
         <Navbar/>
+        <div >
+        <h1 style={{marginTop:"6px",color:"red"}}>Edit Employee</h1>
         <ul>
                 {printEmployee()}
         </ul>
+
+        </div>
+
         <InputForm/>
     </div>
   );
