@@ -1,22 +1,33 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
-import Navbar from './Navbar';
 import InputForm from './InputForm';
+import Login from './Login';
+import InputFormAdmin from './InputFormAdmin';
 
 
 const Form =()=>{
+    const [name,setName] = useState(' ')
+    const [surname,setSurname] = useState(' ')
+    const [tel,setTel] = useState(' ')
+    const [position,setPoisition] = useState(' ')
+    const [status,setStatus] = useState(' ')
+
     const employees = useSelector(state=> state.employee);
     const form = useSelector(state => state.form)
     const dispatch = useDispatch()
      useEffect(()=>{
         getEmployees();
      },[])
+     
      const getEmployees = async () => {
         const result = await axios.get(`https://api-booking-parttimes.herokuapp.com/api/employees`)
         console.log(result.data)
         dispatch({type:'GET_EMPLOYEES',employee: result.data})
       }
+
+
+
       const deleteEmployee = async (employee_id)=>{
         await axios.delete(`https://api-booking-parttimes.herokuapp.com/api/employees/${employee_id}`)
         dispatch({type:'DELETE_EMPLOYEE',id: employee_id })
@@ -40,14 +51,15 @@ const Form =()=>{
                     <li key={index}>
                             
                             {employee.name}  {employee.surname  } : 
-                            {employee.tel}  {employee.position}
+                            {employee.tel}  {employee.position} {employee.date} {employee.status}
                             <br/>
-                            <button style={{marginLeft:"6px"}} className="btn btn-danger btn-sm"
-                            onClick={()=>deleteEmployee(employee.id)}
-                            >Delete</button>
                             <button style={{marginLeft:"6px" }} className="btn btn-info btn-sm"
                             onClick={()=>updateEmployee(employee.id)}
                             >Update</button>
+                            <button style={{marginLeft:"6px"}} className="btn btn-danger btn-sm"
+                            onClick={()=>deleteEmployee(employee.id)}
+                            >Delete</button>
+                            
                     </li> 
                 )
             })
@@ -58,16 +70,15 @@ const Form =()=>{
     }
   return (
     <div>
-        <Navbar/>
-        <div >
-        <h1 style={{marginTop:"6px",color:"red"}}>Edit Employee</h1>
+        <div className="jumbotron">
+        <h1 style={{marginTop:"-30px",color:"red"}}>Edit Employee</h1>
         <ul>
                 {printEmployee()}
         </ul>
 
         </div>
 
-        <InputForm/>
+        <InputFormAdmin />
     </div>
   );
 }

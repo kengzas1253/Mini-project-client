@@ -21,10 +21,13 @@ const Employee =()=>{
             return employees.map((employee,index)=>{
                 return(
                <tr>
-                   <td>{employee.name}</td>
+                <td>{employee.id}</td>
+                <td>{employee.name}</td>
                 <td>{employee.surname}</td>
                 <td>{employee.tel}</td>
                 <td>{employee.position}</td>
+                <td>{employee.date}</td>
+                <td>{employee.status}</td>
                </tr>
                    
                 )
@@ -36,13 +39,16 @@ const Employee =()=>{
     }
 
   return (
-    <div>
-         <table  >
+    <div className="container-fluid">
+         <table className="table table-bordered"  >
                 <tr >
+                  <th>NO.</th>
                   <th>Firstname</th>
                   <th>Lastname</th> 
-                  <th>TEL</th>
-                  <th>position</th>
+                  <th>Telephone Number</th>
+                  <th>Position</th>
+                  <th>Date</th>
+                  <th>Status</th>
                 </tr>
                     {printEmployees()}  
             </table>

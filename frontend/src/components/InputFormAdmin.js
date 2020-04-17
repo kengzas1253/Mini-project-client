@@ -3,7 +3,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 
 
-function InputForm() {
+function InputFormAdmin(props) {
     const dispatch = useDispatch();
     const form = useSelector(state => state.form)
     const employees = useSelector(state => state.employee)
@@ -19,8 +19,7 @@ function InputForm() {
        
    }
   return (
-    <div className="container">
-      <h3>Register Apply job </h3>
+    <div style={{marginTop:"-30px"}} className="container">
         {/* <p1>{form.name} {form.surname} {form.tel} {form.position} {form.date}</p1> */}
         <br/>
       <div class="form-group">
@@ -63,14 +62,22 @@ function InputForm() {
              onChange={(e) => dispatch({ type: 'CHANGE_DATE', date: e.target.value })}
             />
       </div>
+      <div class="form-group">
+      <label>Status:</label>
+        <input class="form-control"
+             type="text"
+             placeholder="Enter Status" 
+             onChange={(e) => dispatch({ type: 'CHANGE_STATUS', status: e.target.value })}
+            />
+      </div>
           
             
             <button style={{marginLeft: "4px" }} 
-            class="btn btn-success "
-            onClick={addEmployee}>Apply</button>
+            class="btn btn-success"
+            onClick={addEmployee}>Add Data</button>
             
     </div>
   );
 }
 
-export default InputForm;
+export default InputFormAdmin;
