@@ -5,10 +5,10 @@
 https://api-mongodb-mini-project.herokuapp.com/api/works  </br>
 https://api-mongodb-mini-project.herokuapp.com/api/employee </br>
 ## FontEnd
-### use react router dom
-### use Redux
-### use firebase
-### use Google Font API
-### use Bootstrap
+### react router dom
+### redux
+### firebase
+### Google Font API
+### Bootstrap
 # Flow me in Medium
 https://medium.com/@kengsnaratip
