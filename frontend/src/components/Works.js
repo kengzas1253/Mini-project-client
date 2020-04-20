@@ -8,7 +8,7 @@ const Works =()=>{
         getWorks();
      },[])
      const getWorks = async () => {
-        const result = await axios.get(`https://api-booking-parttimes.herokuapp.com/api/works`)
+        const result = await axios.get(`https://api-mongodb-mini-project.herokuapp.com/api/works/`)
         console.log("my data",result.data)
         dispatch({type:'GET_WORKS',work: result.data})
       }
@@ -17,10 +17,11 @@ const Works =()=>{
             return works.map((work,index)=>{
                 return(
                     <tr>
-                      <td>{work.id}</td>
+                      <td>{index+1}</td>
                       <td>{work.job}</td>
-                      <td>{work.detail}</td>
-                      <td>{work.number} position</td>
+                      <td>{work.day}</td>
+                      <td>{work.times}</td>
+                      <td>{work.positions} position</td>
                     </tr>
                 )
             })
@@ -31,17 +32,20 @@ const Works =()=>{
     } 
      
     return(
-        <diV class="container">
-            <h3>New Parttime job</h3>
+        <diV class="container" >
+            <div style={{marginTop:"20px"}}>
+            <h3 style={{fontFamily:'Prompt' }} >งานพาสไทม์ใหม่ (New Parttime job)</h3>
             <table className="table table-bordered" >
                 <tr >
                   <th>NO.</th>
                   <th>Job</th> 
                   <th>Date</th>
+                  <th>Time</th>
                   <th>Position</th>
                 </tr>
                     {printWorks()}  
             </table>
+            </div>
         </diV>
     )
 }

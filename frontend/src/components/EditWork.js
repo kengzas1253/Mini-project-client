@@ -11,18 +11,18 @@ const Editwork=()=>{
         getWorks();
      },[])
      const getWorks = async () => {
-        const result = await axios.get(`https://api-booking-parttimes.herokuapp.com/api/works`)
+        const result = await axios.get(`https://api-mongodb-mini-project.herokuapp.com/api/works`)
         console.log("my data",result.data)
         dispatch({type:'GET_WORKS',work: result.data})
       }
       const deleteWorks = async (work_id)=>{
-        await axios.delete(`https://api-booking-parttimes.herokuapp.com/api/works/${work_id}`)
+        await axios.delete(`https://api-mongodb-mini-project.herokuapp.com/api/works/${work_id}`)
         dispatch({type:'DELETE_WORK',id: work_id })
         getWorks()
           
     }
     const updateWork = async (work_id) => {
-        await axios.put(`https://api-booking-parttimes.herokuapp.com/api/works/${work_id}`,formWork)
+        await axios.put(`https://api-mongodb-mini-project.herokuapp.com/api/works/${work_id}`,formWork)
          dispatch(
              {type:'UPDATE_WORK',
             id: work_id,
@@ -36,13 +36,13 @@ const Editwork=()=>{
             return works.map((work,index)=>{
                 return(
                     <li key={index}>
-                            {work.job} : {work.detail} : {work.number} position 
+                             {work.job} : {work.day} {work.times}: {work.positions} position 
                             <br/>
                             <button style={{marginLeft:"6px"}} className="btn btn-info btn-sm"
-                            onClick={()=>updateWork(work.id)} >Update</button>
+                            onClick={()=>updateWork(work._id)} >Update</button>
                            
                             <button style={{marginLeft:"6px"}} className="btn btn-danger btn-sm"
-                            onClick={()=>deleteWorks(work.id)} >Delete</button>
+                            onClick={()=>deleteWorks(work._id)} >Delete</button>
                     </li> 
                     
                 )
