@@ -1,23 +1,25 @@
 import {createStore, combineReducers} from 'redux'
 const initialForm = {
-    
     name: '',
     surname: '',
-    tel: '',
+    telephone: '',
     position: '',
     date:'',
-    status:'waiting'
+    time:'',
+    status:'witing'
 }
 const workForm = {
     job: '',
-    detail: '',
-    number: '',
+    day: '',
+    times: '',
+    positions: ''
 }
 const formWorkReducer = (state=workForm,action)=>{
     switch(action.type){
         case 'CHANGE_JOB': return {...state,job: action.job}
-        case 'CHANGE_DETAIL': return {...state,detail: action.detail}
-        case 'CHANGE_NUMBER': return {...state,number: action.number}
+        case 'CHANGE_DAY': return {...state,day: action.day}
+        case 'CHANGE_TIMES': return {...state,times: action.times}
+        case 'CHANGE_POSITIONS': return {...state,positions: action.positions}
         default:return state;
     }
 }
@@ -25,9 +27,10 @@ const formReducer = (state=initialForm,action)=>{
     switch(action.type){
         case 'CHANGE_NAME': return {...state,name: action.name}
         case 'CHANGE_SURNAME': return {...state,surname: action.surname}
-        case 'CHANGE_TEL': return {...state,tel: action.tel}
+        case 'CHANGE_TELEPHONE': return {...state,telephone: action.telephone}
         case 'CHANGE_POSITION': return {...state,position: action.position}
         case 'CHANGE_DATE': return {...state,date: action.date}
+        case 'CHANGE_TIME': return {...state,time: action.time}
         case 'CHANGE_STATUS': return {...state,status: action.status}
         default:return state;
     }
@@ -59,7 +62,7 @@ const workReducer=(state=[],action)=>{
         case 'ADD_WORK': 
             return [...state,action.work]
         case 'DELETE_WORK':
-                return state.filter(work => work.id !== +action.id)
+                return state.filter(work => work._id !== +action.id)
         case 'UPDATE_WORK':
             return state.map(work =>{
                 if(+work.id === +action.id)

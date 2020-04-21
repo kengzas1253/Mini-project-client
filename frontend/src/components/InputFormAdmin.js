@@ -1,26 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 
 
-function InputFormAdmin(props) {
+function InputFormAdmin() {
+
     const dispatch = useDispatch();
     const form = useSelector(state => state.form)
     const employees = useSelector(state => state.employee)
 
+    useEffect(()=>{
+      getEmployees();
+   },[])
+   const getEmployees = async () => {
+      const result = await axios.get(`https://api-mongodb-mini-project.herokuapp.com/api/employee`)
+      dispatch({type:'GET_EMPLOYEES',employee: result.data})
+    }
     const addEmployee = async () => {
-      await axios.post(`https://api-booking-parttimes.herokuapp.com/api/employees`, form)
+      await axios.post(`https://api-mongodb-mini-project.herokuapp.com/api/employee`, form)
        dispatch({
            type: 'ADD_EMPLOYEE', employee: {
                id: employees.length > 0 ? employees[employees.length-1].id+1 : 0,
                ...form
            }
        })
-       
+       getEmployees()
    }
   return (
     <div style={{marginTop:"-30px"}} className="container">
-        {/* <p1>{form.name} {form.surname} {form.tel} {form.position} {form.date}</p1> */}
+        {/* <p1>{form.name} {form.surname} {form.telephone} {form.position} {form.date} {form.time} {form.status} </p1> */}
         <br/>
       <div class="form-group">
       <label >Name:</label>
@@ -43,7 +51,7 @@ function InputFormAdmin(props) {
          <input  class="form-control"
              type="number"
              placeholder="Enter telephone number" 
-             onChange={(e) => dispatch({ type: 'CHANGE_TEL', tel: e.target.value })}
+             onChange={(e) => dispatch({ type: 'CHANGE_TELEPHONE', telephone: e.target.value })}
             />
       </div>
       <div class="form-group">
@@ -60,6 +68,14 @@ function InputFormAdmin(props) {
              type="text"
              placeholder="Enter Date" 
              onChange={(e) => dispatch({ type: 'CHANGE_DATE', date: e.target.value })}
+            />
+      </div>
+      <div class="form-group">
+      <label>Time:</label>
+        <input class="form-control"
+             type="text"
+             placeholder="Enter Time" 
+             onChange={(e) => dispatch({ type: 'CHANGE_TIME', time: e.target.value })}
             />
       </div>
       <div class="form-group">

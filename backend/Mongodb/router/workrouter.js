@@ -5,7 +5,7 @@ let mongoose = require("mongoose");
 
 let workSchema = mongoose.Schema(
   {
-    // กำหนด ชื่อและชนิดของ document เรา
+    // define name and type document 
     job: {
       type: String
     },
@@ -20,12 +20,12 @@ let workSchema = mongoose.Schema(
     }
   },
   {
-    // กำหนด collection ของ MongoDB หรือจะไม่กำหนดก็ได้
+     // define collection MongoDB 
     collection: "works"
   }
 );
 
-// ถ้าไม่ได้กำหนด collection ข้างบน default จะเป็น "Works"
+
 let Work = mongoose.model("works", workSchema);
 
 // GET all

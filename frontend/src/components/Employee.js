@@ -11,7 +11,7 @@ const Employee =()=>{
         getEmployees();
      },[])
      const getEmployees = async () => {
-        const result = await axios.get(`https://api-booking-parttimes.herokuapp.com/api/employees`)
+        const result = await axios.get(`https://api-mongodb-mini-project.herokuapp.com/api/employee`)
         console.log(result.data)
         dispatch({type:'GET_EMPLOYEES',employee: result.data})
       }
@@ -21,12 +21,13 @@ const Employee =()=>{
             return employees.map((employee,index)=>{
                 return(
                <tr>
-                <td>{employee.id}</td>
+                <td>{index+1}</td>
                 <td>{employee.name}</td>
                 <td>{employee.surname}</td>
-                <td>{employee.tel}</td>
+                <td>{employee.telephone}</td>
                 <td>{employee.position}</td>
                 <td>{employee.date}</td>
+                <td>{employee.time}</td>
                 <td>{employee.status}</td>
                </tr>
                    
@@ -48,6 +49,7 @@ const Employee =()=>{
                   <th>Telephone Number</th>
                   <th>Position</th>
                   <th>Date</th>
+                  <th>Time</th>
                   <th>Status</th>
                 </tr>
                     {printEmployees()}  

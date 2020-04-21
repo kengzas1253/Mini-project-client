@@ -7,12 +7,7 @@ import InputFormAdmin from './InputFormAdmin';
 
 
 const Form =()=>{
-    const [name,setName] = useState(' ')
-    const [surname,setSurname] = useState(' ')
-    const [tel,setTel] = useState(' ')
-    const [position,setPoisition] = useState(' ')
-    const [status,setStatus] = useState(' ')
-
+  
     const employees = useSelector(state=> state.employee);
     const form = useSelector(state => state.form)
     const dispatch = useDispatch()
@@ -21,21 +16,19 @@ const Form =()=>{
      },[])
      
      const getEmployees = async () => {
-        const result = await axios.get(`https://api-booking-parttimes.herokuapp.com/api/employees`)
+        const result = await axios.get(`https://api-mongodb-mini-project.herokuapp.com/api/employee`)
         console.log(result.data)
         dispatch({type:'GET_EMPLOYEES',employee: result.data})
       }
 
-
-
       const deleteEmployee = async (employee_id)=>{
-        await axios.delete(`https://api-booking-parttimes.herokuapp.com/api/employees/${employee_id}`)
+        await axios.delete(`https://api-mongodb-mini-project.herokuapp.com/api/employee/${employee_id}`)
         dispatch({type:'DELETE_EMPLOYEE',id: employee_id })
         getEmployees()
           
     }
     const updateEmployee = async (employee_id) => {
-      await axios.put(`https://api-booking-parttimes.herokuapp.com/api/employees/${employee_id}`,form)
+      await axios.put(`https://api-mongodb-mini-project.herokuapp.com/api/employee/${employee_id}`,form)
        dispatch(
            {type:'UPDATE_EMPLOYEE',
           id: employee_id,
@@ -51,13 +44,13 @@ const Form =()=>{
                     <li key={index}>
                             
                             {employee.name}  {employee.surname  } : 
-                            {employee.tel}  {employee.position} {employee.date} {employee.status}
+                            {employee.telephone}  {employee.position} {employee.date} {employee.time} {employee.status}
                             <br/>
                             <button style={{marginLeft:"6px" }} className="btn btn-info btn-sm"
-                            onClick={()=>updateEmployee(employee.id)}
+                            onClick={()=>updateEmployee(employee._id)}
                             >Update</button>
                             <button style={{marginLeft:"6px"}} className="btn btn-danger btn-sm"
-                            onClick={()=>deleteEmployee(employee.id)}
+                            onClick={()=>deleteEmployee(employee._id)}
                             >Delete</button>
                             
                     </li> 
