@@ -3,7 +3,7 @@ import Employee from './Employee'
 import Navbar from './Navbar'
 const Status = () => {
     return (
-        <div>
+        <div  style={{fontFamily:'Prompt'}}>
             <Navbar />
 
             <div style={{ marginTop: "20px" }} className="container">
@@ -27,7 +27,7 @@ const Status = () => {
       </tr>
       <tr>
         <td>
-        <span className="badge badge-success">success</span>  
+        <span className="badge badge-success">Success</span>  
          </td>
         <td>Staff accepted(เจ้าหน้าที่ตอบรับแล้ว)</td>
       </tr>

@@ -54,13 +54,16 @@ function InputFormAdmin() {
              onChange={(e) => dispatch({ type: 'CHANGE_TELEPHONE', telephone: e.target.value })}
             />
       </div>
-      <div class="form-group">
-      <label>Position:</label>
-        <input class="form-control"
-             type="text"
-             placeholder="Enter Position" 
-             onChange={(e) => dispatch({ type: 'CHANGE_POSITION', position: e.target.value })}
-            />
+       <div class="form-group">
+        <label for="exampleFormControlSelect1">Position:</label>
+        <select class="form-control"
+         onChange={(e) => dispatch({ type: 'CHANGE_POSITION', position: e.target.value })} >
+          <option>Banquet</option>
+          <option>Causal</option>
+          <option>Chef assistant</option>
+          <option>Set up</option>
+          <option>Staff party</option>
+        </select>
       </div>
       <div class="form-group">
       <label>Date:</label>
@@ -71,20 +74,26 @@ function InputFormAdmin() {
             />
       </div>
       <div class="form-group">
-      <label>Time:</label>
-        <input class="form-control"
-             type="text"
-             placeholder="Enter Time" 
-             onChange={(e) => dispatch({ type: 'CHANGE_TIME', time: e.target.value })}
-            />
+        <label for="exampleFormControlSelect1">Time:</label>
+        <select class="form-control" 
+        onChange={(e) => dispatch({ type: 'CHANGE_TIME', time: e.target.value })} >
+          <option>08.00-17.00</option>
+          <option>09.00-18.00</option>
+          <option>12.00-21.00</option>
+          <option>13.00-22.00</option>
+          <option>15.00-00.00</option>
+          <option>18.00-03.00</option>
+          <option>20.00-05.00</option>
+        </select>
       </div>
       <div class="form-group">
-      <label>Status:</label>
-        <input class="form-control"
-             type="text"
-             placeholder="Enter Status" 
-             onChange={(e) => dispatch({ type: 'CHANGE_STATUS', status: e.target.value })}
-            />
+        <label for="exampleFormControlSelect1">Status:</label>
+        <select class="form-control" 
+         onChange={(e) => dispatch({ type: 'CHANGE_STATUS', status: e.target.value })} >
+          <option>Fail</option>
+          <option>Success</option>
+          <option>Waiting</option>
+        </select>
       </div>
           
             
