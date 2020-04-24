@@ -6,7 +6,7 @@ const initialForm = {
     position: '',
     date:'',
     time:'',
-    status:'witing'
+    status:'Waiting'
 }
 const workForm = {
     job: '',

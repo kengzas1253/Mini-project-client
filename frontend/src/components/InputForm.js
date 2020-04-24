@@ -21,7 +21,7 @@ function InputForm() {
   return (
     <div className="container">
       <h3>Register Apply job </h3>
-      <p1>{form.name} {form.surname} {form.telephone} {form.position} {form.date}{form.time}</p1>
+      {/* <p1>{form.name} {form.surname} {form.telephone} {form.position} {form.date}{form.time}</p1> */}
       <br />
       <div class="form-group">
         <label >Name:</label>
@@ -79,7 +79,6 @@ function InputForm() {
           <option>18.00-03.00</option>
           <option>20.00-05.00</option>
         </select>
-        
       </div>
 
 

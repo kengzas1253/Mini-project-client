@@ -8,7 +8,7 @@ const ApplyJob=()=>{
     
     return(
         <div >
-            <Navbar/>
+            {/* <Navbar/> */}
             <div className="container" style={{marginTop:"20px"}}>
             <Employee/>
             <br/>

@@ -6,7 +6,6 @@ import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Admin from './components/Admin';
 import ApplyJob from './components/ApplyJob';
-import Status from './components/Staus';
 
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <Route path='/' exact component={Homepage}/>
         <Route path='/admin' exact component={Admin}/>
         <Route path='/Apply' exact component={ApplyJob}/>
-        <Route path='/status' exact component={Status}/>
+       
       </Switch>
 
     </Router>
