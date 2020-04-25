@@ -29,7 +29,7 @@ const InputWorks = () => {
     return (
         <div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Position:</label>
+                <label for="exampleFormControlSelect1">Job:</label>
                 <select class="form-control"
                     onChange={(e) => dispatch({ type: 'CHANGE_JOB', job: e.target.value })} >
                     <option>Banquet</option>
@@ -42,7 +42,7 @@ const InputWorks = () => {
             <div class="form-group">
                 <label >Date:</label>
                 <input class="form-control"
-                    type="text"
+                    type="date"
                     placeholder="Enter Date"
                     onChange={(e) => dispatch({ type: 'CHANGE_DAY', day: e.target.value })}
                 />

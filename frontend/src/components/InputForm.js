@@ -62,7 +62,7 @@ function InputForm() {
       <div class="form-group">
         <label>Date:</label>
         <input class="form-control"
-          type="text"
+          type="date"
           placeholder="Enter Date"
           onChange={(e) => dispatch({ type: 'CHANGE_DATE', date: e.target.value })}
         />

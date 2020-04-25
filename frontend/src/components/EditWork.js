@@ -53,7 +53,7 @@ const Editwork=()=>{
         }
     } 
     return(
-        <div >
+        <div className="container">
             <div className="jumbotron">
             <h1 style={{marginTop:"-30px",color:"blue"}}>Edit Work</h1>
             <ul>
