@@ -35,6 +35,10 @@ app.use("/api/works", Work);
 let Employee = require("./router/employeerouter");
 app.use("/api/employee", Employee);
 
+// path cancel job collectin MongoDB 
+let Cancel_job = require("./router/cancelrouter");
+app.use("/api/cancel_job", Cancel_job);
+
 app.use((req, res, next) => {
   let err = new Error("path ");
   err.status = 404;

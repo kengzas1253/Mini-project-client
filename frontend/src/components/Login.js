@@ -9,7 +9,8 @@ const Login =({ setSession })=>{
 
   const handleLogin = async () => {
     try {
-      const response = await auth.signInWithEmailAndPassword(
+      if(username=="admin1234@gmail.com"){
+           const response = await auth.signInWithEmailAndPassword(
         username,
         password
       );
@@ -20,6 +21,8 @@ const Login =({ setSession })=>{
         isLoggedIn: true,
         currentUser: user
       });
+      }
+   
     } catch (error) {
       setSession({
         isLoggedIn: false,
