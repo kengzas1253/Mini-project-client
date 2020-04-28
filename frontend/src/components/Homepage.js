@@ -21,6 +21,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Status from './Status';
 import ApplyJob from './ApplyJob';
+import Cancel_job from './Cancel_job';
+import ShowStatus from './ShowStatus';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -129,13 +131,13 @@ const Homepage =()=>{
         <Works/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Status/>
+        <ShowStatus/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <ApplyJob/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-       Comming soon
+       <Cancel_job/>
       </TabPanel>
       <TabPanel value={value} index={4}>
         <div className="container">

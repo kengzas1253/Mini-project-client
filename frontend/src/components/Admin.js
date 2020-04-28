@@ -15,6 +15,7 @@ import PersonPinIcon from '@material-ui/icons/PersonPin';
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import EditCancelJob from './EditCancelJob';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -132,6 +133,7 @@ const Admin = () => {
                 <h4>Hello Admin: {session.currentUser && session.currentUser.email}
                   <button style={{ marginLeft: "8px" }} className="btn btn-danger btn-sm"
                     onClick={handleLogout}>logout</button> </h4>
+                    <EditCancelJob/>
               </div>
             </TabPanel>
 
