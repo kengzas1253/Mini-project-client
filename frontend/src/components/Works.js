@@ -34,7 +34,7 @@ const Works =()=>{
     return(
         <diV class="container" >
             <div style={{marginTop:"20px"}}>
-            <h3 style={{fontFamily:'Prompt' }} >งานพาสไทม์ใหม่ (New Parttime job)</h3>
+            <h3 style={{fontFamily:'Prompt' }} >New Parttime job(งานพาสไทม์ใหม่) 500 Bath a day (500 บาทต่อวัน)</h3>
             <table className="table table-bordered" >
                 <tr >
                   <th>NO.</th>

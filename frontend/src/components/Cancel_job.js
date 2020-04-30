@@ -48,6 +48,11 @@ export default function Cancel_job() {
     } 
     return (
         <div className="container" style={{fontFamily:"Prompt"}}>
+          <h3 style={{textAlign:"center",color:"red"}}>Please cancel the work
+           before 3 working days.If not notified in the system Will 
+           consider cutting off the right to apply for the next job.</h3>
+          <h3 style={{textAlign:"center",color:"blue"}}>กรุณาแจ้งยกเลิกงาน 3 วันก่อนวันทำงาน </h3>  
+          <h3 style={{textAlign:"center",color:"blue"}}>หากไม่ได้แจ้งในระบบ จะพิจาณาตัดสิทธิ์ในการสมัครงานครั้งต่อไป </h3>
             <table className="table table-bordered" >
                 <tr >
                   <th>NO</th>
