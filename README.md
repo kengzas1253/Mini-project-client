@@ -1,4 +1,5 @@
 # Mini-project-client
+Mini Project Part Time Hotel Register </br>
 # App Demo
 https://mini-project-5735512153.herokuapp.com/
 ### Youtube
@@ -14,6 +15,7 @@ mongoes </br>
 </br> API Mongo DB in Heroku </br>
 https://api-mongodb-mini-project.herokuapp.com/api/works  </br>
 https://api-mongodb-mini-project.herokuapp.com/api/employee </br>
+https://api-mongodb-mini-project.herokuapp.com/api/cancel_job/ </br>
 ## FontEnd
 react router dom </br>
 redux   </br>
